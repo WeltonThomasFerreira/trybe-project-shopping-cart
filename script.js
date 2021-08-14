@@ -79,4 +79,5 @@ async function addProductToCart() {
 window.onload = async () => {
   await fetchResults('computador');
   addProductToCart();
+  console.log('teste de ssh');
 };
