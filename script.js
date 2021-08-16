@@ -31,7 +31,14 @@ function getSkuFromProductItem(item) {
 }
 
 function cartItemClickListener(event) {
-  // coloque seu código aqui
+  event.target.remove();
+}
+
+function addCartListener() {
+  const cartItems = document.querySelectorAll('.cart__item');
+  cartItems.forEach((item) => {
+    item.addEventListener('click', cartItemClickListener);
+  });
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
@@ -79,5 +86,5 @@ async function addProductToCart() {
 window.onload = async () => {
   await fetchResults('computador');
   addProductToCart();
-  console.log('teste de ssh');
+  addCartListener();
 };
