@@ -1,13 +1,21 @@
 const shoppingCartID = '#shopping-cart';
+let totalPurchase = 0;
 
 function addShoppingCartToStorage() {
   const shoppingCart = document.querySelector(shoppingCartID);
+  const total = document.querySelector('.total-price');
   window.localStorage.setItem('shopping_cart', shoppingCart.innerHTML);
+  window.localStorage.setItem(
+    'total_purchase',
+    (total.innerHTML = totalPurchase),
+  );
 }
 
 function fetchCartInStorage() {
   const shoppingCart = document.querySelector(shoppingCartID);
+  const total = document.querySelector('.total-price');
   shoppingCart.innerHTML = localStorage.getItem('shopping_cart');
+  total.innerHTML = localStorage.getItem('total_purchase');
 }
 
 function fetchItemById(id) {
@@ -55,6 +63,8 @@ function getSkuFromProductItem(item) {
 }
 
 async function cartItemClickListener(event) {
+  const mappedItem = await fetchItemById(event.target.id);
+  totalPurchase -= mappedItem.salePrice;
   await event.target.remove();
   addShoppingCartToStorage();
 }
@@ -64,7 +74,7 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.className = 'cart__item';
   li.id = sku;
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-  li.addEventListener('click', cartItemClickListener);
+  // li.addEventListener('click', cartItemClickListener);
   return li;
 }
 
@@ -99,6 +109,7 @@ function addProductToCart() {
     item.addEventListener('click', async (event) => {
       const itemID = getSkuFromProductItem(event.target.parentElement);
       const mappedItem = await fetchItemById(itemID);
+      totalPurchase += mappedItem.salePrice;
       await appendItem(mappedItem);
       addShoppingCartToStorage();
     }));
@@ -113,7 +124,7 @@ function removeProductFromCart() {
 
 window.onload = async () => {
   await fetchResults('computador');
-  fetchCartInStorage();
+  await fetchCartInStorage();
   addProductToCart();
   removeProductFromCart();
 };
