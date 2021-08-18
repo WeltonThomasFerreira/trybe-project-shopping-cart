@@ -122,9 +122,22 @@ function removeProductFromCart() {
   });
 }
 
+function emptyCart() {
+  const emptyCartButton = document.querySelector('.empty-cart');
+  emptyCartButton.addEventListener('click', () => {
+    const cart = document.querySelector(shoppingCartID);
+    const price = document.querySelector('#total-price');
+    window.localStorage.removeItem('shopping_cart');
+    window.localStorage.removeItem('total_purchase');
+    cart.innerHTML = '';
+    price.innerHTML = 'Preço total: $<span class="total-price"></span>';
+  });
+}
+
 window.onload = async () => {
   await fetchResults('computador');
   await fetchCartInStorage();
   addProductToCart();
   removeProductFromCart();
+  emptyCart();
 };
