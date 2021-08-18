@@ -28,6 +28,19 @@ function fetchItemById(id) {
     }));
 }
 
+function displayLoading() {
+  const loading = document.createElement('h1');
+  const sectionItems = document.querySelector('.items');
+  loading.innerHTML = 'loading...';
+  loading.classList.add('loading');
+  sectionItems.appendChild(loading);
+}
+
+function removeLoading() {
+  const loading = document.querySelector('.loading');
+  const sectionItems = document.querySelector('.items');
+  sectionItems.removeChild(loading);
+}
 // ------------------------------------------------------------------------------------
 
 function createProductImageElement(imageSource) {
@@ -135,7 +148,9 @@ function emptyCart() {
 }
 
 window.onload = async () => {
+  displayLoading();
   await fetchResults('computador');
+  removeLoading();
   await fetchCartInStorage();
   addProductToCart();
   removeProductFromCart();
