@@ -14,7 +14,7 @@
 - Trabalhar com funções assíncronas.
 
 ## Desenvolvimento
-Um carrinho de compras totalmente dinâmico, consumindo dados diretamente de uma API.
+Um [carrinho de compras](https://weltonthomasferreira.github.io/trybe-project-shopping-cart/) totalmente dinâmico, consumindo dados diretamente de uma API.
 
 ![Imagem do site desenvolvido](./readme/images/shopping-cart-site.png "Site")
 
