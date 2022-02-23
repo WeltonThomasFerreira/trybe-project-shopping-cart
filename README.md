@@ -1,9 +1,9 @@
 # Trybe Project Shopping Cart 12/08/2021
 <br>
 <div style="display: inline_block">
-  <img src="https://img.shields.io/badge/css3-0D1117?style=for-the-badge&logo=css3&logoColor=1572B6&logoWidth=20"/>
-  <img src="https://img.shields.io/badge/html5-0D1117?style=for-the-badge&logo=html5&logoColor=E34F26&logoWidth=20"/>
-  <img src="https://img.shields.io/badge/javascript-0D1117?style=for-the-badge&logo=javascript&logoColor=F7DF1E&logoWidth=20"/>
+  <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=fff&logoWidth=20"/>
+  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=fff&logoWidth=20"/>
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=fff&logoWidth=20"/>
 </div>
 <br>
 
